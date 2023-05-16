@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <title>HomePage</title>
+</head>
+<body>
+<div class="container-fluid d-flex justify-content-center text-center mt-2 bg-light">
+  <div class="row mr-3">
+    <div class="col-sm-8 mb-2">
+      <a href="">Home</a>
+    </div>
+  </div>
+
+  <div class="row mr-3">
+    <div class="col-sm-8 mb-2">
+      <a th:href="@{/users}">Manage Users</a>
+    </div>
+  </div>
+  <div class="row mr-3">
+    <div class="col-sm-8 mb-2">
+      <a th:href="@{/products}">Manage Product</a>
+
+    </div>
+  </div>
+  <div class="row mr-3">
+    <div class="col-sm-8 mb-2">
+      <a th:href="@{/clients}">Manage Client</a>
+
+    </div>
+  </div>
+  <div class="row ml-5">
+    <div class="col-sm-8 mb-2">
+      <a class="btn btn-success" th:href="@{/user/login}">Logout</a>
+
+    </div>
+  </div>
+
+</div>
+<!--<div class="container-fluid text-center">-->
+<!--  <div class="m-2" style="padding-top: 6rem;">-->
+<!--    <a class="btn btn-primary" th:href="@{/signup}">Users</a>-->
+<!--  </div>-->
+
+<!--  <div class="m-2" style="padding-top: 6rem;">-->
+<!--    <a class="btn btn-primary" th:href="@{/users}">Manage Users</a>-->
+<!--    <a class="btn btn-secondary" th:href="@{/products}">Manage Products</a>-->
+<!--    <a class="btn btn-secondary" th:href="@{/clients}">Manage Clients</a>-->
+<!--  </div>-->
+</div>
+</body>
+</html>

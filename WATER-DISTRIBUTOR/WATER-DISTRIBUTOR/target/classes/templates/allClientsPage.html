@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <title>listClients</title>
+</head>
+<body>
+<div class="container-fluid d-flex justify-content-center text-center mt-2 bg-light">
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a  th:href="@{/}">Home</a>
+        </div>
+    </div>
+
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/users}">Manage Users</a>
+        </div>
+    </div>
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/products}">Manage Product</a>
+
+        </div>
+    </div>
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/clients}">Manage Client</a>
+
+        </div>
+    </div>
+    <div class="row ml-5">
+        <div class="col-sm-8 mb-2">
+            <a class="btn btn-success" th:href="@{/user/login}">Logout</a>
+
+        </div>
+    </div>
+
+</div>
+<div class="container-fluid text-center">
+  <div class="m-3"><h2>Manage Clients</h2></div>
+    <div class="m-2">
+        <a class="h3" th:href="@{/client/new}" >Add New </a>
+    </div>
+
+    <div th:if="${message}" class="alert alert-success">
+        [[${message}]]
+    </div>
+
+    <div>
+        <table class="table table-bordered">
+            <thead class="table-secondary">
+            <tr>
+                <th>ID</th>
+                <th>First name</th>
+                <th>Last name</th>
+                <th>Phone</th>
+                <th>Prod-Name</th>
+                <th>Quantity</th>
+                <th>Amount</th>
+                <th>Address</th>
+                <th>Action</th>
+            </tr>
+            </thead>
+            <tbody>
+                <th:block th:each=" client : ${listClients}">
+                    <tr>
+                        <td>[[${client.id}]]</td>
+                        <td>[[${client.firstname}]]</td>
+                        <td>[[${client.lastname}]]</td>
+                        <td>[[${client.phone}]]</td>
+                        <td>[[${client.productName}]]</td>
+                        <td>[[${client.quantity}]]</td>
+                        <td>[[${client.amount}]]</td>
+                        <td>[[${client.address}]]</td>
+                        <td>
+                            <a class="btn btn-primary" th:href="@{'/client/edit/' +${client.id}}">Edit</a>
+                            <a class="btn btn-danger" th:href="@{'/client/delete/' +${client.id}}">Delete</a>
+                        </td>
+                    </tr>
+                </th:block>
+            </tbody>
+        </table>
+    </div>
+<!--    <di class="text-center">-->
+<!--        <button type="button" class="btn btn-primary" onclick="cancelFunction()">Cancel</button>-->
+<!--        <button type="button" class="btn btn-danger" onclick="exitFunction()">Exit</button>-->
+<!--    </di>-->
+
+<!--</div>-->
+
+<!--<script>-->
+<!--    function cancelFunction(){-->
+<!--        window.location = "/login/user";-->
+<!--    }-->
+
+<!--    function exitFunction(){-->
+<!--        window.location = "/";-->
+<!--    }-->
+<!--</script>-->
+</body>
+</html>

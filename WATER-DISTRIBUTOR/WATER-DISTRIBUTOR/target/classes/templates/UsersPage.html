@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" th:href="@{/webjars/bootstrap/css/bootstrap.min.css}">
+    <title>All-Users</title>
+</head>
+<body>
+<div class="container-fluid d-flex justify-content-center text-center mt-2 bg-light">
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/}">Home</a>
+        </div>
+    </div>
+
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/users}">Manage Users</a>
+        </div>
+    </div>
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/products}">Manage Product</a>
+
+        </div>
+    </div>
+    <div class="row mr-3">
+        <div class="col-sm-8 mb-2">
+            <a th:href="@{/clients}">Manage Client</a>
+
+        </div>
+    </div>
+    <div class="row ml-5">
+        <div class="col-sm-8 mb-2">
+            <a class="btn btn-success" th:href="@{/user/login}">Logout</a>
+
+        </div>
+    </div>
+
+</div>
+<div class="container-fluid text-center">
+    <div class="m-5"><h2>Manage Users</h2></div>
+      <div class="m-2">
+        <a class="h3" th:href="@{/signup}" >Add New User</a>
+       </div>
+    </div>
+
+  <div>
+    <table class="table table-bordered">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Username</th>
+                <th>Email</th>
+                <th>Password</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="user : ${listUsers}">
+            <tr>
+                <td>[[${user.id}]]</td>
+                <td>[[${user.username}]]</td>
+                <td>[[${user.email}]]</td>
+                <td>[[${user.password}]]</td>
+                <td>
+                    <a class="btn btn-primary" th:href="@{'/user/edit/' +${user.id}}">Edit</a>
+                    <a class="btn btn-danger" th:href="@{'/user/delete/' +${user.id}}">Delete</a>
+                </td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+  </div>
+
+<!--<di class="text-center">-->
+<!--    <button type="button" class="btn btn-primary" onclick="cancelFunction()">Cancel</button>-->
+<!--    <button type="button" class="btn btn-danger" onclick="exitFunction()">Exit</button>-->
+<!--</di>-->
+
+
+<!--<script>-->
+<!--    function cancelFunction(){-->
+<!--        window.location = "/login/user";-->
+<!--    }-->
+
+<!--    function exitFunction(){-->
+<!--        window.location = "/";-->
+<!--    }-->
+<!--</script>-->
+
+</body>
+</html>
